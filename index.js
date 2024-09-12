@@ -5,213 +5,214 @@
  * The registry is created in lib/engine/process/core/index.js, and exposed globally
  * in lib/engine/process/core/global/index.js
  */
-module.exports = new class {
-    #Dependency = (require('./dependencies/dependency'));
-    get Dependency() {
-        return this.#Dependency;
-    }
 
-    #DependenciesPropagator = (require('./dependencies/propagator'));
-    get DependenciesPropagator() {
-        return this.#DependenciesPropagator;
-    }
+const Dependency = require('./dependencies/dependency');
+const DependenciesPropagator = require('./dependencies/propagator');
+const Bundle = require('./bundle');
+const BundlePackager = require('./bundle/packager');
+const BundleCodeBase = require('./bundle/packager/code/base');
+const BundleJsCode = require('./bundle/packager/code/js');
+const BundleCssCode = require('./bundle/packager/code/css');
+const BundleDependencies = require('./bundle/packager/dependencies');
+const Bundles = require('./bundles');
+const BundlesConfig = require('./bundles/config');
+const TxtBundle = require('./txt/bundle');
+const TxtTransversal = require('./txt/transversal');
+const Transversal = require('./transversal');
+const TransversalDependencies = require('./transversal/packager/dependencies');
+const TransversalPackager = require('./transversal/packager');
+const TransversalCodePackager = require('./transversal/packager/code');
+const ProcessorBase = require('./processor/base');
+const ProcessorSourcesDependencies = require('./processor/base/dependencies/sources');
+const ProcessorHashes = require('./processor/base/hashes');
+const ProcessorSources = require('./processor/base/sources');
+const ProcessorSourcesHashes = require('./processor/base/sources/hashes');
+const ProcessorSource = require('./processor/source');
+const ProcessorCompiledSource = require('./processor/source/compiled');
+const ProcessorOptions = require('./processor/base/sources/options');
+const ProcessorAnalyzer = require('./processor/base/analyzer');
+const ProcessorSinglyAnalyzer = require('./processor/base/analyzer/singly');
+const ProcessorAnalyzerSource = require('./processor/base/analyzer/source');
+const ProcessorAnalyzerDependencies = require('./processor/base/dependencies/analyzer');
+const ProcessorPackager = require('./processor/packager');
+const ProcessorCompiler = require('./processor/packager/compiler');
+const ProcessorSinglyCompiler = require('./processor/packager/compiler/singly');
+const ProcessorCompilerChildren = require('./processor/packager/compiler/children');
+const ProcessorCode = require('./processor/packager/code');
+const ProcessorSinglyCode = require('./processor/packager/code/singly');
+const ProcessorDeclaration = require('./processor/packager/declaration');
+const ProcessorsExtender = require('./processor/extender');
+const ProcessorsExtenderPreprocessor = require('./processor/extender/preprocessor');
+const ProcessorsExtenderSinglyPreprocessor = require('./processor/extender/preprocessor/singly');
+const SourceMap = require('./sourcemap');
+const registries = require('./registries');
 
-    #Bundle = (require('./bundle'));
-    get Bundle() {
-        return this.#Bundle;
-    }
+module.exports = new (class {
+	get Dependency() {
+		return Dependency;
+	}
 
-    #BundlePackager = (require('./bundle/packager'));
-    get BundlePackager() {
-        return this.#BundlePackager;
-    }
+	get DependenciesPropagator() {
+		return DependenciesPropagator;
+	}
 
-    #BundleCodeBase = (require('./bundle/packager/code/base'));
-    get BundleCodeBase() {
-        return this.#BundleCodeBase;
-    }
+	get Bundle() {
+		return Bundle;
+	}
 
-    #BundleJsCode = (require('./bundle/packager/code/js'));
-    get BundleJsCode() {
-        return this.#BundleJsCode;
-    }
+	get BundlePackager() {
+		return BundlePackager;
+	}
 
-    #BundleCssCode = (require('./bundle/packager/code/css'));
-    get BundleCssCode() {
-        return this.#BundleCssCode;
-    }
+	get BundleCodeBase() {
+		return BundleCodeBase;
+	}
 
-    #BundleDependencies = (require('./bundle/packager/dependencies'));
-    get BundleDependencies() {
-        return this.#BundleDependencies;
-    }
+	get BundleJsCode() {
+		return BundleJsCode;
+	}
 
-    #Bundles = (require('./bundles'));
-    get Bundles() {
-        return this.#Bundles;
-    }
+	get BundleCssCode() {
+		return BundleCssCode;
+	}
 
-    #BundlesConfig = (require('./bundles/config'));
-    get BundlesConfig() {
-        return this.#BundlesConfig;
-    }
+	get BundleDependencies() {
+		return BundleDependencies;
+	}
 
-    #TxtBundle = (require('./txt/bundle'));
-    get TxtBundle() {
-        return this.#TxtBundle;
-    }
+	get Bundles() {
+		return Bundles;
+	}
 
-    #TxtTransversal = (require('./txt/transversal'));
-    get TxtTransversal() {
-        return this.#TxtTransversal;
-    }
+	get BundlesConfig() {
+		return BundlesConfig;
+	}
 
-    #Transversal = (require('./transversal'));
-    get Transversal() {
-        return this.#Transversal;
-    }
+	get TxtBundle() {
+		return TxtBundle;
+	}
 
-    #TransversalDependencies = (require('./transversal/packager/dependencies'));
-    get TransversalDependencies() {
-        return this.#TransversalDependencies;
-    }
+	get TxtTransversal() {
+		return TxtTransversal;
+	}
 
-    #TransversalPackager = (require('./transversal/packager'));
-    get TransversalPackager() {
-        return this.#TransversalPackager;
-    }
+	get Transversal() {
+		return Transversal;
+	}
 
-    #TransversalCodePackager = (require('./transversal/packager/code'));
-    get TransversalCodePackager() {
-        return this.#TransversalCodePackager;
-    }
+	get TransversalDependencies() {
+		return TransversalDependencies;
+	}
 
-    #ProcessorBase = (require('./processor/base'));
-    get ProcessorBase() {
-        return this.#ProcessorBase;
-    }
+	get TransversalPackager() {
+		return TransversalPackager;
+	}
 
-    #ProcessorSourcesDependencies = (require('./processor/base/dependencies/sources'));
-    get ProcessorSourcesDependencies() {
-        return this.#ProcessorSourcesDependencies;
-    }
+	get TransversalCodePackager() {
+		return TransversalCodePackager;
+	}
 
-    #ProcessorHashes = (require('./processor/base/hashes'));
-    get ProcessorHashes() {
-        return this.#ProcessorHashes;
-    }
+	get ProcessorBase() {
+		return ProcessorBase;
+	}
 
-    #ProcessorSources = (require('./processor/base/sources'));
-    get ProcessorSources() {
-        return this.#ProcessorSources;
-    }
+	get ProcessorSourcesDependencies() {
+		return ProcessorSourcesDependencies;
+	}
 
-    #ProcessorSourcesHashes = (require('./processor/base/sources/hashes'));
-    get ProcessorSourcesHashes() {
-        return this.#ProcessorSourcesHashes;
-    }
+	get ProcessorHashes() {
+		return ProcessorHashes;
+	}
 
-    #ProcessorSource = (require('./processor/source'));
-    get ProcessorSource() {
-        return this.#ProcessorSource;
-    }
+	get ProcessorSources() {
+		return ProcessorSources;
+	}
 
-    #ProcessorCompiledSource = (require('./processor/source/compiled'));
-    get ProcessorCompiledSource() {
-        return this.#ProcessorCompiledSource;
-    }
+	get ProcessorSourcesHashes() {
+		return ProcessorSourcesHashes;
+	}
 
-    #ProcessorOptions = (require('./processor/base/sources/options'));
-    get ProcessorOptions() {
-        return this.#ProcessorOptions;
-    }
+	get ProcessorSource() {
+		return ProcessorSource;
+	}
 
-    #ProcessorAnalyzer = (require('./processor/base/analyzer'));
-    get ProcessorAnalyzer() {
-        return this.#ProcessorAnalyzer;
-    }
+	get ProcessorCompiledSource() {
+		return ProcessorCompiledSource;
+	}
 
-    #ProcessorSinglyAnalyzer = (require('./processor/base/analyzer/singly'));
-    get ProcessorSinglyAnalyzer() {
-        return this.#ProcessorSinglyAnalyzer;
-    }
+	get ProcessorOptions() {
+		return ProcessorOptions;
+	}
 
-    #ProcessorAnalyzerSource = (require('./processor/base/analyzer/source'));
-    get ProcessorAnalyzerSource() {
-        return this.#ProcessorAnalyzerSource;
-    }
+	get ProcessorAnalyzer() {
+		return ProcessorAnalyzer;
+	}
 
-    #ProcessorAnalyzerDependencies = (require('./processor/base/dependencies/analyzer'));
-    get ProcessorAnalyzerDependencies() {
-        return this.#ProcessorAnalyzerDependencies;
-    }
+	get ProcessorSinglyAnalyzer() {
+		return ProcessorSinglyAnalyzer;
+	}
 
-    #ProcessorPackager = (require('./processor/packager'));
-    get ProcessorPackager() {
-        return this.#ProcessorPackager;
-    }
+	get ProcessorAnalyzerSource() {
+		return ProcessorAnalyzerSource;
+	}
 
-    #ProcessorCompiler = (require('./processor/packager/compiler'));
-    get ProcessorCompiler() {
-        return this.#ProcessorCompiler;
-    }
+	get ProcessorAnalyzerDependencies() {
+		return ProcessorAnalyzerDependencies;
+	}
 
-    #ProcessorSinglyCompiler = (require('./processor/packager/compiler/singly'));
-    get ProcessorSinglyCompiler() {
-        return this.#ProcessorSinglyCompiler;
-    }
+	get ProcessorPackager() {
+		return ProcessorPackager;
+	}
 
-    #ProcessorCompilerChildren = (require('./processor/packager/compiler/children'));
-    get ProcessorCompilerChildren() {
-        return this.#ProcessorCompilerChildren;
-    }
+	get ProcessorCompiler() {
+		return ProcessorCompiler;
+	}
 
-    #ProcessorCode = (require('./processor/packager/code'));
-    get ProcessorCode() {
-        return this.#ProcessorCode;
-    }
+	get ProcessorSinglyCompiler() {
+		return ProcessorSinglyCompiler;
+	}
 
-    #ProcessorSinglyCode = (require('./processor/packager/code/singly'));
-    get ProcessorSinglyCode() {
-        return this.#ProcessorSinglyCode;
-    }
+	get ProcessorCompilerChildren() {
+		return ProcessorCompilerChildren;
+	}
 
-    #ProcessorDeclaration = (require('./processor/packager/declaration'));
-    get ProcessorDeclaration() {
-        return this.#ProcessorDeclaration;
-    }
+	get ProcessorCode() {
+		return ProcessorCode;
+	}
 
-    #ProcessorsExtender = (require('./processor/extender'));
-    get ProcessorsExtender() {
-        return this.#ProcessorsExtender;
-    }
+	get ProcessorSinglyCode() {
+		return ProcessorSinglyCode;
+	}
 
-    #ProcessorsExtenderPreprocessor = (require('./processor/extender/preprocessor'));
-    get ProcessorsExtenderPreprocessor() {
-        return this.#ProcessorsExtenderPreprocessor;
-    }
+	get ProcessorDeclaration() {
+		return ProcessorDeclaration;
+	}
 
-    #ProcessorsExtenderSinglyPreprocessor = (require('./processor/extender/preprocessor/singly'));
-    get ProcessorsExtenderSinglyPreprocessor() {
-        return this.#ProcessorsExtenderSinglyPreprocessor;
-    }
+	get ProcessorsExtender() {
+		return ProcessorsExtender;
+	}
 
-    #SourceMap = (require('./sourcemap'));
-    get SourceMap() {
-        return this.#SourceMap;
-    }
+	get ProcessorsExtenderPreprocessor() {
+		return ProcessorsExtenderPreprocessor;
+	}
 
-    #registries = require('./registries');
+	get ProcessorsExtenderSinglyPreprocessor() {
+		return ProcessorsExtenderSinglyPreprocessor;
+	}
 
-    createRegistries(config) {
-        this.#registries.create(config);
-    }
+	get SourceMap() {
+		return SourceMap;
+	}
 
-    get bundles() {
-        return this.#registries.bundles;
-    }
+	createRegistries(config) {
+		registries.create(config);
+	}
 
-    get processors() {
-        return this.#registries.processors;
-    }
-};
+	get bundles() {
+		return registries.bundles;
+	}
+
+	get processors() {
+		return registries.processors;
+	}
+})();
