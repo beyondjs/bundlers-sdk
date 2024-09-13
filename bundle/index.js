@@ -1,5 +1,6 @@
 const DynamicProcessor = require('@beyond-js/dynamic-processor')();
 const equal = require('@beyond-js/equal');
+const registry = require('@beyond-js/widgets-bundle/registry');
 
 module.exports = class extends DynamicProcessor {
 	get dp() {
@@ -156,12 +157,12 @@ module.exports = class extends DynamicProcessor {
 	 */
 	constructor(module, type, config) {
 		if (!module || !type) throw new Error('Invalid parameters');
-		if (!global.bundles.has(type)) {
+		if (!registry.bundles.has(type)) {
 			throw new Error(`Bundle "${type}" is not registered`);
 		}
 
 		super();
-		this.#meta = global.bundles.get(type);
+		this.#meta = registry.bundles.get(type);
 		this.#module = module;
 		this.#type = type;
 		this.#packagers = new (require('./packagers'))(this);

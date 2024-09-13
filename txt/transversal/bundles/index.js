@@ -1,3 +1,4 @@
+const registry = require('@beyond-js/widgets-bundle/registry');
 const DynamicProcessor = require('@beyond-js/dynamic-processor')();
 
 /**
@@ -29,7 +30,8 @@ module.exports = class extends DynamicProcessor {
 			if (!platforms.webAndMobileAndSSR.includes(platform) && ['widget'].includes(name)) continue;
 
 			if (!child.code) continue;
-			code += global.utils.code.header(`BUNDLE: ${name.toUpperCase()}`);
+			const { header } = require('@beyond-js/code');
+			code += header(`BUNDLE: ${name.toUpperCase()}`);
 			code += child.code + '\n';
 		}
 
@@ -42,7 +44,7 @@ module.exports = class extends DynamicProcessor {
 		this.#distribution = distribution;
 
 		const children = new Map();
-		for (let bundle of global.bundles.values()) {
+		for (let bundle of registry.bundles.values()) {
 			if (!bundle.start?.Start) continue;
 			const start = new bundle.start.Start(application, distribution);
 			children.set(bundle.type, { child: start });

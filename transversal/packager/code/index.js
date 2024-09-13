@@ -1,4 +1,5 @@
 const DynamicProcessor = require('@beyond-js/dynamic-processor')();
+const SourceMap = require('@beyond-js/bundles-sdk/source-map');
 const { minify } = require('uglify-js');
 const mformat = require('beyond/mformat');
 
@@ -49,7 +50,7 @@ module.exports = class extends DynamicProcessor {
 		const packagers = this.children.get('packagers.code').child;
 		const { count, code, map } = packagers;
 
-		const sourcemap = new global.SourceMap();
+		const sourcemap = new SourceMap();
 		sourcemap.concat('const bundles = [];');
 		count && sourcemap.concat(code, void 0, map);
 		sourcemap.concat('__beyond_transversal.initialise(bundles);\n\n');
@@ -83,7 +84,7 @@ module.exports = class extends DynamicProcessor {
 		this.#warnings = warnings;
 		if (errors) return;
 
-		let sourcemap = new global.SourceMap();
+		let sourcemap = new SourceMap();
 		dependencies.count && sourcemap.concat(dependencies.code);
 
 		const { transversal } = this.#tp;

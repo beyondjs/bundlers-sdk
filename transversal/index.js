@@ -1,3 +1,4 @@
+const registry = require('@beyond-js/widgets-bundle/registry');
 const DynamicProcessor = require('@beyond-js/dynamic-processor')();
 
 module.exports = class extends DynamicProcessor {
@@ -51,7 +52,7 @@ module.exports = class extends DynamicProcessor {
 	 */
 	constructor(application, name, config) {
 		if (!application || !name) throw new Error('Invalid parameters');
-		if (!global.bundles.has(name) || !global.bundles.get(name).transversal) {
+		if (!registry.bundles.has(name) || !registry.bundles.get(name).transversal) {
 			throw new Error(`Bundle "${name}" is not registered`);
 		}
 
@@ -60,7 +61,7 @@ module.exports = class extends DynamicProcessor {
 		this.#name = name;
 		this.#packagers = new (require('./packagers'))(this);
 
-		this.#multilanguage = !!global.bundles.get(name).multilanguage;
+		this.#multilanguage = !!registry.bundles.get(name).multilanguage;
 
 		super.setup(new Map([['config', { child: config }]]));
 	}

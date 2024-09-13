@@ -136,7 +136,8 @@ module.exports = class extends DynamicProcessor {
 		// Process the declaration
 		for (const [name, { packager }] of processors) {
 			if (!packager?.declaration || !packager.declaration.code) continue;
-			code += global.utils.code.header(`Processor: ${name}`) + '\n';
+			const { header } = require('@beyond-js/code');
+			code += header(`Processor: ${name}`) + '\n';
 			code += packager.declaration.code + '\n\n';
 		}
 

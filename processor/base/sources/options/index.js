@@ -1,4 +1,6 @@
-const { fs, crc32 } = global.utils;
+const crc32 = require('@beyond-js/crc32');
+const fs = require('@beyond-js/fs');
+
 const DynamicProcessor = require('@beyond-js/dynamic-processor')();
 
 module.exports = class extends DynamicProcessor {

@@ -1,4 +1,6 @@
-const DynamicProcessor = require('@beyond-js/dynamic-processor')(Map);
+const registry = require('@beyond-js/budles-sdk/registry');
+const registry = require('@beyond-js/widgets-bundle/registry');
+const ProcessorBase = require('@beyond-js/processor/base');
 
 /**
  * The processors of a packager
@@ -47,7 +49,7 @@ module.exports = class extends DynamicProcessor {
 
 		this.#packager = packager;
 		const { bundle } = packager;
-		this.#supported = global.bundles.get(bundle.type).bundle.processors;
+		this.#supported = registry.bundles.get(bundle.type).bundle.processors;
 		if (!(this.#supported instanceof Array)) {
 			throw new Error(`Supported processors property is not defined in "${bundle.type}" bundle`);
 		}
@@ -58,7 +60,7 @@ module.exports = class extends DynamicProcessor {
 		super.setup(
 			new Map([
 				['bundle', { child: bundle }],
-				['global.processors', { child: global.processors }],
+				['registry.processors', { child: registry.processors }],
 			]),
 		);
 	}
@@ -77,7 +79,7 @@ module.exports = class extends DynamicProcessor {
 		for (const [name, config] of processors) {
 			if (reserved.includes(name)) continue;
 
-			if (this.#supported.includes(name) && !global.processors.has(name)) {
+			if (this.#supported.includes(name) && !registry.processors.has(name)) {
 				this.#errors.push(`Processor "${name}" is not registered`);
 				continue;
 			}
@@ -94,8 +96,8 @@ module.exports = class extends DynamicProcessor {
 			const packager = this.#packager;
 			const specs = { watcher, bundle, packager, distribution, language, application };
 
-			const meta = global.processors.get(name);
-			const Processor = meta.Processor ? meta.Processor : global.ProcessorBase;
+			const meta = registry.processors.get(name);
+			const Processor = meta.Processor ? meta.Processor : ProcessorBase;
 			const processor = this.has(name) ? this.get(name) : (changed = true) && new Processor(name, specs);
 
 			// Allow the processor to modify the config object without affecting the original configuration

@@ -1,10 +1,10 @@
 # ProcessorCode
 
-## global.ProcessorCode
+## ProcessorCode
 
 ```typescript
 interface ProcessorCode extends IProcessorCode, IDynamicProcessor {
-    _build(hmr: boolean);
+	_build(hmr: boolean);
 }
 ```
 
@@ -12,15 +12,15 @@ interface ProcessorCode extends IProcessorCode, IDynamicProcessor {
 
 ```typescript
 interface IProcessorCode {
-    packager: IProcessorPackager;
-    multilanguage: boolean;
-    diagnostics: ICompilerDiagnostics; // Shortcut to this.packager.compiler.diagnostics
-    valid: boolean; // Shortcut to this.diagnostics.valid
-    code: { code: string, map: object };
-    hmr: { code: string, map: object };
+	packager: IProcessorPackager;
+	multilanguage: boolean;
+	diagnostics: ICompilerDiagnostics; // Shortcut to this.packager.compiler.diagnostics
+	valid: boolean; // Shortcut to this.diagnostics.valid
+	code: { code: string; map: object };
+	hmr: { code: string; map: object };
 
-    constructor(packager: IProcessorPackager);
+	constructor(packager: IProcessorPackager);
 
-    configure(multilanguage: boolean);
+	configure(multilanguage: boolean);
 }
 ```

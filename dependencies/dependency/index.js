@@ -1,3 +1,4 @@
+const registry = require('@beyond-js/widgets-bundle/registry');
 const DynamicProcessor = require('@beyond-js/dynamic-processor')();
 
 /**
@@ -83,7 +84,7 @@ module.exports = class extends DynamicProcessor {
 		if (this.external) return 'external';
 
 		const { bundle } = this.seeker;
-		const transversal = !!global.bundles.get(bundle.type).transversal;
+		const transversal = !!registry.bundles.get(bundle.type).transversal;
 		return transversal ? 'transversal' : 'bundle';
 	}
 

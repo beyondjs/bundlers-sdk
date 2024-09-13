@@ -1,6 +1,6 @@
 const ipc = require('@beyond-js/ipc');
 const DynamicProcessor = require('@beyond-js/dynamic-processor')(Map);
-
+const registry = require('@beyond-js/widgets-bundle/registry');
 /**
  * Bundles collection used by application module (AM) and application library (AL)
  */
@@ -44,7 +44,7 @@ module.exports = class extends DynamicProcessor {
 		// Consider that it is multiplied by the number of distributions.
 		this.setMaxListeners(100);
 
-		const children = [['global.bundles', { child: global.bundles }]];
+		const children = [['registry.bundles', { child: registry.bundles }]];
 
 		// If the container is an application.library, bundles are actually supported only if they are legacy
 		// (not imported projects)
@@ -79,7 +79,7 @@ module.exports = class extends DynamicProcessor {
 		config?.forEach((config, name) => {
 			let bundle = this.has(name) && this.get(name);
 			if (!bundle) {
-				const meta = global.bundles.get(name);
+				const meta = registry.bundles.get(name);
 				const Bundle = meta.bundle?.Bundle ? meta.bundle.Bundle : require('../bundle');
 				bundle = new Bundle(this.#container, name, config);
 				changed = true;

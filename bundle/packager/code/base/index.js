@@ -1,3 +1,4 @@
+const SourceMap = require('@beyond-js/bundles-sdk/source-map');
 const DynamicProcessor = require('@beyond-js/dynamic-processor')();
 const ipc = require('@beyond-js/ipc');
 
@@ -154,7 +155,7 @@ module.exports = class extends DynamicProcessor {
 			const message =
 				'HMR code or map cannot be requested if the processor is up-to-date ' +
 				'and it has been previously obtained from cache';
-			const sourcemap = new global.SourceMap();
+			const sourcemap = new SourceMap();
 			sourcemap.concat(`// ${message}`);
 			return done({ sourcemap });
 		}

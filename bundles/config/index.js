@@ -1,6 +1,6 @@
 const DynamicProcessor = require('@beyond-js/dynamic-processor')(Map);
 const equal = require('@beyond-js/equal');
-
+const registry = require('@beyond-js/widgets-bundle/registry');
 /**
  * The bundles of the module or project
  */
@@ -36,7 +36,7 @@ module.exports = class extends DynamicProcessor {
 		super();
 
 		this.#container = container;
-		super.setup(new Map([['global.bundles', { child: global.bundles }]]));
+		super.setup(new Map([['registry.bundles', { child: registry.bundles }]]));
 	}
 
 	_prepared() {
@@ -48,7 +48,7 @@ module.exports = class extends DynamicProcessor {
 		const warnings = [];
 		const updated = new Map();
 		[...Object.entries(this.#config)].forEach(([name, config]) => {
-			if (!global.bundles.has(name)) {
+			if (!registry.bundles.has(name)) {
 				warnings.push(`Bundle "${name}" not found`);
 				return;
 			}
