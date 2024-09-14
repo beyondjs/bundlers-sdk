@@ -1,10 +1,12 @@
 # ProcessorDeclaration
 
-## global.ProcessorDeclaration
-`` const {ProcessorDeclaration} = require('beyond/sdk');``
+## ProcessorDeclaration
+
+` const {ProcessorDeclaration} = require('beyond/sdk');`
+
 ```typescript
 interface ProcessorDeclaration extends IProcessorDeclaration, IDynamicProcessor {
-    _build();
+	_build();
 }
 ```
 
@@ -12,11 +14,11 @@ interface ProcessorDeclaration extends IProcessorDeclaration, IDynamicProcessor 
 
 ```typescript
 interface IProcessorDeclaration {
-    packager: IProcessorPackager;
-    diagnostics: ICompilerDiagnostics; // Shortcut to this.packager.compiler.diagnostics
-    valid: boolean; // Shortcut to this.diagnostics.valid
-    code: { code: string, map: string };
+	packager: IProcessorPackager;
+	diagnostics: ICompilerDiagnostics; // Shortcut to this.packager.compiler.diagnostics
+	valid: boolean; // Shortcut to this.diagnostics.valid
+	code: { code: string; map: string };
 
-    constructor(packager: IProcessorPackager);
+	constructor(packager: IProcessorPackager);
 }
 ```

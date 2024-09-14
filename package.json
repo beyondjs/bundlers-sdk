@@ -36,7 +36,7 @@
 		"./processor/base/dependencies/analyzer": "./processor/base/dependencies/analyzer.js",
 		"./processor/packager": "./processor/packager/index.js",
 		"./processor/packager/compiler": "./processor/packager/compiler/index.js",
-		"./processor/packager/compiler/singly": "./processor/packager/compiler/singly.js",
+		"./processor/packager/compiler/singly": "./processor//processor/packager/compiler/singly/compiler/singly.js",
 		"./processor/packager/compiler/children": "./processor/packager/compiler/children.js",
 		"./processor/packager/code": "./processor/packager/code/index.js",
 		"./processor/packager/code/singly": "./processor/packager/code/singly.js",
