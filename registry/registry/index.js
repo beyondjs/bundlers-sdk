@@ -28,8 +28,7 @@ module.exports = class extends DynamicProcessor {
 	}
 
 	_process() {
-		value = value ? value : {};
-		for (const path of register) {
+		for (const path of this.#config) {
 			try {
 				const item = require(path);
 
