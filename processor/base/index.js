@@ -1,4 +1,4 @@
-const registry = require('@beyond-js/widgets-bundle/registry');
+const registry = require('@beyond-js/bundles-sdk/registry');
 /**
  * Processor's base class
  */

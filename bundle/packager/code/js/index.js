@@ -1,5 +1,3 @@
-const registry = require('@beyond-js/widgets-bundle/registry');
-
 module.exports = class extends require('../base') {
 	get dp() {
 		return 'bundler.bundle.packager.code.js';
@@ -56,7 +54,7 @@ module.exports = class extends require('../base') {
 		}
 
 		const { packager } = this;
-		const transversal = !!registry.bundles.get(packager.bundle.type).transversal;
+		const transversal = !!this.packager.application.bundles.get(packager.bundle.type).transversal;
 
 		return require('./package')(this, hmr, transversal);
 	}

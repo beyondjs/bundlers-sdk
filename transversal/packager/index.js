@@ -1,4 +1,3 @@
-const registry = require('@beyond-js/widgets-bundle/registry');
 const DynamicProcessor = require('@beyond-js/dynamic-processor')();
 
 /**
@@ -81,7 +80,7 @@ module.exports = class extends DynamicProcessor {
 		this.#hash = bundles.hash;
 		this.#dependencies = new (require('./dependencies'))(this, bundles);
 
-		const meta = registry.bundles.get(transversal.name);
+		const meta = this.application.bundles.get(transversal.name);
 		let Js = meta.transversal.JsPackager;
 		Js = Js ? Js : require('./code');
 		this.#js = new Js(this, bundles);

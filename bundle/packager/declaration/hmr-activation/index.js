@@ -1,7 +1,5 @@
-const registry = require('@beyond-js/widgets-bundle/registry');
-
 module.exports = function (bundle) {
-	const transversal = registry.bundles.get(bundle.type).Transversal;
+	const transversal = bundle.application.bundles.get(bundle.type).Transversal;
 	if (transversal) return '';
 
 	const excludes = ['@beyond-js/kernel/bundle', '@beyond-js/kernel/routing', '@beyond-js/bee/main'];

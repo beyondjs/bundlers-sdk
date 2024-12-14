@@ -1,7 +1,7 @@
 const DynamicProcessor = require('@beyond-js/dynamic-processor')();
 const SourceMap = require('@beyond-js/bundles-sdk/source-map');
 const { minify } = require('uglify-js');
-const mformat = require('beyond/mformat');
+const mformat = require('@beyond-js/mformat');
 
 module.exports = class extends DynamicProcessor {
 	get dp() {

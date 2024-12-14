@@ -11,7 +11,7 @@ module.exports = class {
 		const key = `${distribution.key}//${language}`;
 		if (this.#packagers.has(key)) return this.#packagers.get(key);
 
-		let { Packager } = registry.bundles.get(this.#transversal.name).transversal;
+		let { Packager } = this.#transversal.bundles.get(this.#transversal.name).transversal;
 		Packager = Packager ? Packager : require('./packager');
 		const packager = new Packager(this.#transversal, distribution, language);
 

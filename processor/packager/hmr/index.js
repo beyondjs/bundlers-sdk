@@ -1,5 +1,5 @@
 const DynamicProcessor = require('@beyond-js/dynamic-processor')();
-const mformat = require('beyond/mformat');
+const mformat = require('@beyond-js/mformat');
 
 /**
  * Process the processor HMR code
