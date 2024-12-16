@@ -1,6 +1,6 @@
 {
 	"name": "@beyond-js/bundles-sdk",
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"description": "BeyondJS Bundles SDK",
 	"main": "index.js",
 	"types": "index.d.ts",
