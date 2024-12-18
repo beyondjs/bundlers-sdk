@@ -1,5 +1,5 @@
 const DynamicProcessor = require('@beyond-js/dynamic-processor')();
-const ipc = require('@beyond-js/ipc');
+const ipc = require('@beyond-js/ipc/main');
 const equal = require('@beyond-js/equal');
 
 module.exports = class extends DynamicProcessor {

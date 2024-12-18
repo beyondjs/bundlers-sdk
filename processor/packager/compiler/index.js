@@ -1,5 +1,5 @@
 const DynamicProcessor = require('@beyond-js/dynamic-processor')();
-const ipc = require('@beyond-js/ipc');
+const ipc = require('@beyond-js/ipc/main');
 const Diagnostics = require('../../diagnostics');
 const Meta = require('./meta');
 

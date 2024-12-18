@@ -1,4 +1,4 @@
-const ipc = require('@beyond-js/ipc');
+const ipc = require('@beyond-js/ipc/main');
 const { FinderCollection } = require('@beyond-js/finder');
 const Source = require('./source');
 

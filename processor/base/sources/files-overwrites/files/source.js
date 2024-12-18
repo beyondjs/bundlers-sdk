@@ -1,4 +1,4 @@
-const ipc = require('@beyond-js/ipc');
+const ipc = require('@beyond-js/ipc/main');
 const { FinderCollection } = require('@beyond-js/finder');
 
 module.exports = class extends FinderCollection.Item {
