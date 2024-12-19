@@ -55,8 +55,8 @@
 		"bundles",
 		"sdk"
 	],
-	"author": "Your Name or Organization",
-	"license": "SEE LICENSE IN LICENSE",
+	"author": "BeyondJS",
+	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/yourusername/beyond-js-bundles-sdk.git"
