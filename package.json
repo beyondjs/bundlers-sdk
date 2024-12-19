@@ -66,9 +66,10 @@
 	},
 	"homepage": "https://github.com/yourusername/beyond-js-bundles-sdk#readme",
 	"dependencies": {
+		"@beyond-js/bee": "^0.0.6",
 		"@beyond-js/code": "^0.0.1",
 		"@beyond-js/crc32": "^0.0.1",
-		"@beyond-js/dynamic-processor": "^0.0.3",
+		"@beyond-js/dynamic-processor": "^0.0.5",
 		"@beyond-js/equal": "^0.0.1",
 		"@beyond-js/finder": "0.0.6",
 		"@beyond-js/fs": "^0.0.1",
