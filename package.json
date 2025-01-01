@@ -15,7 +15,6 @@
 		"./bundle/packager/code/css": "./bundle/packager/code/css/index.js",
 		"./bundle/packager/dependencies": "./bundle/packager/dependencies/index.js",
 		"./bundles": "./bundles/index.js",
-		"./bundles/config": "./bundles/config/index.js",
 		"./txt/bundle": "./txt/bundle/index.js",
 		"./txt/transversal": "./txt/transversal/index.js",
 		"./transversal": "./transversal/index.js",
