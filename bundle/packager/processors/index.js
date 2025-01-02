@@ -1,5 +1,6 @@
 const ProcessorBase = require('@beyond-js/processor/base');
 const registry = require('@beyond-js/bundles-sdk/registry');
+
 /**
  * The processors of a packager
  */
@@ -59,7 +60,7 @@ module.exports = class extends DynamicProcessor {
 			new Map([
 				['bundle', { child: bundle }],
 				['registry.processors', { child: registry.processors }],
-			]),
+			])
 		);
 	}
 
