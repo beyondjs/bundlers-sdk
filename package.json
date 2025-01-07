@@ -1,6 +1,6 @@
 {
 	"name": "@beyond-js/bundles-sdk",
-	"version": "1.0.8",
+	"version": "1.0.10",
 	"description": "BeyondJS Bundles SDK",
 	"main": "index.js",
 	"types": "index.d.ts",
@@ -68,7 +68,7 @@
 	"dependencies": {
 		"@beyond-js/code": "~0.0.1",
 		"@beyond-js/crc32": "~0.0.1",
-		"@beyond-js/dynamic-processor": "~0.0.5",
+		"@beyond-js/dynamic-processor": "~0.0.7",
 		"@beyond-js/equal": "~0.0.1",
 		"@beyond-js/finder": "~0.0.8",
 		"@beyond-js/fs": "~0.0.1",
