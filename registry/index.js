@@ -14,6 +14,7 @@ module.exports = new (class {
 		return this.#registry?.processors;
 	}
 
+	constructor() {}
 	create(config) {
 		if (this.#created) throw new Error('Bundler registries already created');
 		this.#created = true;

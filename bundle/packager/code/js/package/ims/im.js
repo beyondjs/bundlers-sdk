@@ -1,4 +1,5 @@
 const { header } = require('@beyond-js/code');
+
 module.exports = async function (im, sourcemap) {
 	const { id, url, hash, code, map } = im;
 

@@ -22,7 +22,8 @@ module.exports = class extends DynamicProcessor {
 		super();
 		//TODO: Review the use of setMaxListeners
 		this.setMaxListeners(1000);
-		if (!['bundles', 'processors'].includes(is)) throw new Error('Invalid parameters');
+
+		if (!['bundles', 'processors'].includes(is)) throw new Error(`Invalid parameters`);
 		this.#config = config;
 		super.setup(new Map([['config', {}]]));
 	}
