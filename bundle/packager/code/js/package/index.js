@@ -18,7 +18,7 @@ module.exports = function (jscode, hmr, transversal) {
 	if (transversal && !hmr) return { sourcemap };
 
 	const { mode } = distribution.bundles;
-	let { code, map, errors } = mformat({ code: sourcemap.code, map: sourcemap.map, mode });
+	let { code, map, errors } = mformat({ code: sourcemap.code, map: sourcemap.map, format: mode });
 	if (errors) return { errors };
 
 	if (!distribution.minify?.js) return { sourcemap: { code, map } };

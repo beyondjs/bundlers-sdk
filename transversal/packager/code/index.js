@@ -112,7 +112,7 @@ module.exports = class extends DynamicProcessor {
 		const { mode } = this.#tp.distribution.bundles;
 
 		let map, code;
-		({ errors, map, code } = mformat({ code: sourcemap.code, map: sourcemap.map, mode }));
+		({ errors, map, code } = mformat({ code: sourcemap.code, map: sourcemap.map, format: mode }));
 		this.#errors = errors;
 		if (this.#errors) return;
 
@@ -146,7 +146,7 @@ module.exports = class extends DynamicProcessor {
 			new Map([
 				['packagers.code', { child: packagers.code }],
 				['dependencies.code', { child: tp.dependencies.code }],
-			]),
+			])
 		);
 	}
 };

@@ -15,7 +15,6 @@ const BundleJsCode = require('@beyond-js/bundles-sdk/bundle/packager/code/js');
 const BundleCssCode = require('@beyond-js/bundles-sdk/bundle/packager/code/css');
 const BundleDependencies = require('@beyond-js/bundles-sdk/bundle/packager/dependencies');
 const Bundles = require('@beyond-js/bundles-sdk/bundles');
-const BundlesConfig = require('@beyond-js/bundles-sdk/bundles/config');
 const TxtBundle = require('@beyond-js/bundles-sdk/txt/bundle');
 const TxtTransversal = require('@beyond-js/bundles-sdk/txt/transversal');
 const Transversal = require('@beyond-js/bundles-sdk/transversal');
@@ -82,10 +81,6 @@ module.exports = new (class {
 
 	get Bundles() {
 		return Bundles;
-	}
-
-	get BundlesConfig() {
-		return BundlesConfig;
 	}
 
 	get TxtBundle() {

@@ -1,5 +1,5 @@
 const DynamicProcessor = require('@beyond-js/dynamic-processor')();
-const mformat = require('@beyond-js/mformat');
+const mformat = require('@beyond-js/mformat' );
 
 /**
  * Process the processor HMR code
@@ -66,7 +66,7 @@ module.exports = class extends DynamicProcessor {
 		sourcemap.concat(code.code, code.map);
 
 		let map, errors;
-		({ code, map, errors } = mformat({ code: sourcemap.code, map: sourcemap.map, mode }));
+		({ code, map, errors } = mformat({ code: sourcemap.code, map: sourcemap.map, format: mode }));
 		if (errors) {
 			this.#errors = errors;
 			return;
