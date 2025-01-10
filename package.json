@@ -1,5 +1,5 @@
 {
-	"name": "@beyond-js/bundles-sdk",
+	"name": "@beyond-js/bundler-sdk",
 	"version": "1.0.10",
 	"description": "BeyondJS Bundles SDK",
 	"main": "index.js",
