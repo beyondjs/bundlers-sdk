@@ -7,12 +7,12 @@
 		".": "./lib/index.js",
 		"./dependencies/dependency": "./lib/dependencies/dependency/index.js",
 		"./dependencies/propagator": "./lib/dependencies/propagator/index.js",
-		"./bundle": "./lib/bundle/index.js",
-		"./bundle/packager": "./lib/bundle/packager/index.js",
-		"./bundle/packager/code/base": "./lib/bundle/packager/code/base/index.js",
-		"./bundle/packager/code/js": "./lib/bundle/packager/code/js/index.js",
-		"./bundle/packager/code/css": "./lib/bundle/packager/code/css/index.js",
-		"./bundle/packager/dependencies": "./lib/bundle/packager/dependencies/index.js",
+		"./bundler": "./lib/bundler/index.js",
+		"./bundler/packager": "./lib/bundler/packager/index.js",
+		"./bundler/packager/code/base": "./lib/bundler/packager/code/base/index.js",
+		"./bundler/packager/code/js": "./lib/bundler/packager/code/js/index.js",
+		"./bundler/packager/code/css": "./lib/bundler/packager/code/css/index.js",
+		"./bundler/packager/dependencies": "./lib/bundler/packager/dependencies/index.js",
 		"./bundles": "./lib/bundles/index.js",
 		"./transversal": "./lib/transversal/index.js",
 		"./transversal/packager/dependencies": "./lib/transversal/packager/dependencies/index.js",
@@ -40,9 +40,7 @@
 		"./processor/extender": "./lib/processor/extender/index.js",
 		"./processor/extender/preprocessor": "./lib/processor/extender/preprocessor/index.js",
 		"./processor/extender/preprocessor/singly": "./lib/processor/extender/preprocessor/singly.js",
-		"./source-map": "./lib/sourcemap/index.js",
-		"./txt/bundle": "./lib/txt/bundle/index.js",
-		"./txt/transversal": "./lib/txt/transversal/index.js"
+		"./source-map": "./lib/sourcemap/index.js"
 	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
