@@ -1,10 +1,11 @@
 {
-  "tabWidth": 4,
-  "arrowParens": "avoid",
-  "printWidth": 120,
-  "proseWrap": "always",
-  "useTabs": true,
-  "singleQuote": true,
-  "bracketSpacing": true,
-  "configPath": "${workspaceFolder}/.prettierrc"
+	"tabWidth": 4,
+	"arrowParens": "avoid",
+	"printWidth": 120,
+	"proseWrap": "always",
+	"useTabs": true,
+	"singleQuote": true,
+	"bracketSpacing": true,
+	"trailingComma": "none",
+	"configPath": "${workspaceFolder}/.prettierrc"
 }
