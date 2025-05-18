@@ -7,6 +7,7 @@
 		"./module": "./lib/module/index.js",
 		"./conditional": "./lib/conditional/index.js",
 		"./bundler": "./lib/bundler/bundler/index.js",
+		"./bundler/processor": "./lib/bundler/processor/processor/index.js",
 		"./---": "./---",
 		"./dependencies/dependency": "./lib/dependencies/dependency/index.js",
 		"./dependencies/propagator": "./lib/dependencies/propagator/index.js",
