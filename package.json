@@ -8,7 +8,6 @@
 		"./conditional": "./lib/conditional/index.js",
 		"./bundler": "./lib/bundler/bundler/index.js",
 		"./bundler/processors": "./lib/bundler/processors/base/index.js",
-		"./bundler/processors/single": "./lib/bundler/processors/single/index.js",
 		"./bundler/processors/resolver": "./lib/bundler/processors/resolver/index.js",
 		"./bundler/processor": "./lib/bundler/processor/index.js",
 		"./bundler/processor/outputs/ims": "./lib/bundler/processor/outputs/ims/index.js",
