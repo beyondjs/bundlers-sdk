@@ -1,6 +1,6 @@
 {
 	"name": "@beyond-js/bundlers-sdk",
-	"version": "1.0.10",
+	"version": "1.0.0",
 	"description": "BeyondJS Bundles SDK",
 	"main": "./lib/index.js",
 	"exports": {
