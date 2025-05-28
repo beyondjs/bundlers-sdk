@@ -15,7 +15,9 @@
 		"./bundler/processor/outputs/css": "./lib/bundler/processor/outputs/css/index.js",
 		"./bundler/processor/sources/files": "./lib/bundler/processor/sources/files/index.js",
 		"./bundler/processor/sources/file": "./lib/bundler/processor/sources/files/file.js",
-		"./bundler/processor/sources/hashes": "./lib/bundler/processor/sources/hashes.js"
+		"./bundler/processor/sources/hashes": "./lib/bundler/processor/sources/hashes.js",
+		"./bundler/processor/extender": "./lib/bundler/processor/extender/index.js",
+		"./bundler/processor/extender/preprocessor": "./lib/bundler/processor/extender/preprocessor/index.js"
 	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
