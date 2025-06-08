@@ -6,7 +6,12 @@
 	"exports": {
 		"./module": "./lib/module/index.js",
 		"./conditional": "./lib/conditional/index.js",
+		"./conditional/output": "./lib/conditional/output/index.js",
 		"./bundler": "./lib/bundler/bundler/index.js",
+		"./bundler/outputs/esm": "./lib/bundler/outputs/esm/index.js",
+		"./bundler/outputs/local": "./lib/bundler/outputs/local/index.js",
+		"./bundler/outputs/css": "./lib/bundler/outputs/css/index.js",
+		"./bundler/outputs/types": "./lib/bundler/outputs/types/index.js",
 		"./bundler/processors": "./lib/bundler/processors/base/index.js",
 		"./bundler/processors/resolver": "./lib/bundler/processors/resolver/index.js",
 		"./bundler/processor": "./lib/bundler/processor/index.js",
