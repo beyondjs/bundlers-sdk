@@ -2,3 +2,4 @@
 .beyond
 node_modules
 ./.beyond
+.DS_Store
